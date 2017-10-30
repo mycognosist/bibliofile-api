@@ -1,0 +1,50 @@
+[package]
+name = "bibliofile"
+version = "0.1.0"
+authors = ["mycognosist <gnomad@cryptolab.net>"]
+
+# cargo run --bin main
+[[bin]]
+name = "main"
+path = "src/bin/main.rs"
+
+# cargo run --bin seed
+[[bin]]
+name = "seed"
+path = "src/bin/seed.rs"
+
+# lib is the entry point for the main app code.
+# it will import everything and set up app-wide config
+# so it can all be imported into 'bin'
+[lib]
+name = "bibliolib"
+path = "src/lib.rs"
+
+[dependencies]
+# server
+rocket = "0.3.2"
+rocket_codegen = "0.3.2"
+rocket_contrib = { version = "0.3.2", default-features = false, features = ["tera_templates"] }
+
+serde = "1.0.11"
+serde_derive = "1.0.11"
+serde_json = "1.0.2"
+tera = "0.10"
+
+# database
+diesel = { version = "0.16", features = ["sqlite"] }
+diesel_codegen = { version = "0.16", features = ["sqlite"] }
+
+# r2d2 is related to database connection pools
+r2d2 = "*"
+r2d2-diesel = "*"
+
+# Fake crate for seeding purposes
+# This crate will randomly generate all types of data for us
+fake = "*"
+
+# sys
+dotenv = "0.10"
+
+# hashing
+bcrypt = "*"

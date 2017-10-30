@@ -4,7 +4,7 @@
 // Bring the 'schema' file into scope
 use schema::{books, users};
 
-#[derive(Debug, Queryable)]
+#[derive(Debug, Queryable, Serialize)]
 pub struct User {
     pub id: i32,
     pub username: String,
@@ -20,7 +20,7 @@ pub struct NewUser {
     pub password: String,
 }
 
-#[derive(Debug, Queryable)]
+#[derive(Debug, Queryable, Serialize)]
 pub struct Book {
     pub id: i32,
     pub user_id: i32,

@@ -6,8 +6,15 @@
   </head>
   <body>
     <div class="container">
-      <p>Check out this tera Context:</p>
-      <p>{{ my_message }}</p>
+      <h1>Users</h1>
+      {% for user in users %}
+        <p>{{ user.username }} - {{ user.email }}</p>
+      {% endfor %}
+
+      <h1>Books</h1>
+      {% for book in books %}
+        <p>{{ book.title }} - {{ book.author }}</p>
+      {% endfor %}
     </div>
   </body>
 </html>

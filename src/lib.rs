@@ -15,6 +15,7 @@ extern crate r2d2_diesel;
 // Rocket lib & API
 extern crate rocket;
 extern crate rocket_contrib;
+#[macro_use] extern crate serde_derive;
 
 // These mod declarations re-export those files / modules
 // Schema contains the 'infer_schema!' macro to generate table APIs

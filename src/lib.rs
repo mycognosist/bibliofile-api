@@ -68,6 +68,7 @@ impl<'a, 'r> FromRequest<'a, 'r> for DbConn {
     fn from_request(request: &'a Request<'r>) -> request::Outcome<DbConn, ()> {
         let pool = request.guard::<State<Pool<ConnectionManager<SqliteConnection>>>>()?;
 
+        // Use 'get()' method from connection pool to grab the db connection
         match pool.get() {
             Ok(conn) => Outcome::Success(DbConn(conn)),
             Err(_) => Outcome::Failure((Status::ServiceUnavailable, ())),
@@ -75,6 +76,8 @@ impl<'a, 'r> FromRequest<'a, 'r> for DbConn {
     }
 }
 
+// Implementing Deref for DbConn allows us to write '&*connection'
+// when we want to get at the actual connection (and not the smart pointer).
 impl Deref for DbConn {
     type Target = SqliteConnection;
 

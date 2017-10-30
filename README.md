@@ -15,3 +15,39 @@ The goal is to implement a RESTful API for cataloging one's book collection. The
 | POST        | http://[hostname]/api/v1.0/books        | Create a book           |
 | PUT         | http://[hostname]/api/v1.0/books/[isbn] | Update an existing book |
 | DELETE      | http://[hostname]/api/v1.0/books/[isbn] | Delete a book           |
+
+## Setup Instructions
+
+1. Clone the repo and change into it
+
+git clone https://github.com/mycognosist/bibliofile-api.git && cd bibliofile-api
+
+2. Set environment variable (may not be necessary)
+
+source $HOME/.cargo/env
+
+3. Install diesel_cli
+
+cargo install diesel_cli --no-default-features --features sqlite
+
+4. Create .env and add db url
+
+vim .env
+DATABASE_URL=/path/to/your/database.db
+
+5. Setup diesel (creates migrations folder)
+
+diesel setup
+
+6. Create migrations
+
+diesel migration generate create_users_and_books
+
+7. Define db schemas
+
+vim migrations/...create_users_and_books/up.sql
+vim migrations/...create_users_and_books/down.sql
+
+8. Run migrations
+
+diesel migration run

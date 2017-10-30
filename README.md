@@ -51,3 +51,7 @@ vim migrations/...create_users_and_books/down.sql
 8. Run migrations
 
 diesel migration run
+
+9. Seed the database (optional)
+
+cargo run --bin seed

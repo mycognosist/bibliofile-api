@@ -2,7 +2,7 @@
 
 I'm using this project to learn more about [Rocket](https://rocket.rs), a Rust web framework written by [Sergio Benitez](https://sergio.bz/), and [Diesel](https://diesel.rs), an ORM & Query Builder by Sean Griffin.
 
-The [Rust blog tutorial series](https://notryanb.github.io/rust-blog-series-2.html) by [notryanb](https://github.com/notryanb) forms the basis of the code for this project, although I have adapted it to work with a Sqlite database (as opposed to Postgres).
+The [Rust blog tutorial series](https://notryanb.github.io/rust-blog-series-2.html) by [Ryan Blecher](https://twitter.com/Options_R) forms the basis of the code for this project, although I have adapted it to work with a Sqlite database (as opposed to Postgres).
 
 The code is currently up to date with Part II of the tutorial series.
 
